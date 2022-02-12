@@ -1,0 +1,32 @@
+.summary{
+    background-color: rgb(51, 49, 49);
+    box-shadow: 2px 4px 5px rgba(0, 0,0,0.60);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    width: 50%;
+    border-radius: 25px;
+    align-items: center;
+
+    transform: translate(50% , -70%);
+}
+.summary p{
+    padding: 0px 15px;
+font-weight: lighter;
+color: rgb(167, 166, 166);
+}
+.summary h2{
+    padding: 0px 15px;
+}
+.cart{
+    padding: 1rem;
+    box-shadow:  0 2px 8px rgba(0, 0,0,0.25);
+    border-radius: 14px;
+    background-color: white;
+}
+.wraper{
+    width: 65%;
+    margin:-65px  auto;
+    
+}

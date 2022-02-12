@@ -1,0 +1,24 @@
+.lii{
+    list-style: none;
+}
+.price{
+    font-size:18px;
+    color: orange;
+    font-weight: bold;
+    margin:11px 0;
+}
+.line{
+height: 0.5px;
+width: 100%;
+background-color: rgb(226, 226, 226); 
+transform: translateX(-20px);
+}
+.title{
+    font-weight: bold;
+    margin: 11px 0;
+    font-size: 24px;
+}
+.description{
+    font-style: italic;
+    color: rgb(88, 85, 85);
+}
