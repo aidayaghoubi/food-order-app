@@ -25,4 +25,5 @@ transform: translateX(-20px);
 .description{
     font-style: italic;
     color: rgb(88, 85, 85);
+    margin: 0 15px 15px 0;
 }
