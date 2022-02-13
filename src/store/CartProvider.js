@@ -22,7 +22,6 @@ const  cartReduser = (state, action) =>{
 const CartProvider = props => {
    const [cartstate, dispatchCarAction] = useReducer(cartReduser,defaultCartState)
     const addItemToCartHandler = item => { 
-
         dispatchCarAction({type:'ADD' , item:item})
     };
 
@@ -34,7 +33,8 @@ const CartProvider = props => {
         items: cartstate.item,
         totalAmount: 0,
         addItem: addItemToCartHandler,
-        removeItem: removeItemToCartHandler   }
+        removeItem: removeItemToCartHandler 
+    }
 
     return <CartContext.Provider value={cartContext}> 
         {props.children}
