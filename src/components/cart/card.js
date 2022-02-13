@@ -1,10 +1,16 @@
 import classes from '../cart/card.module.css';
+import Modal from '../ui/Model';
 
 
-const Card = props => {
+const Cart = props => {
+
+const cartitem =<ul className={classes.cartItemes}>{ [{id:'c1' , name:'sushi' , amount:2 , price:12.99  }]
+.map((item) => <li key={item.id}>{item.name}</li>)}</ul>;
+
 
     return (
-        <div>
+        <Modal>
+            {cartitem}
             <div className={classes.total}>
                 <span>total amount</span>
                 <span>35.62</span>
@@ -13,8 +19,8 @@ const Card = props => {
                 <button className={classes.close}>Close</button>
                 <button className={classes.button}>Order</button>
             </div>
-        </div>
+        </Modal>
     )
 }
 
-export default Card;
+export default Cart;
