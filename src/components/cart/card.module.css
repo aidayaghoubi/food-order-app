@@ -1,3 +1,38 @@
-.m{
-    background-color: aqua;
+
+.eachiem {
+  list-style: none;
+  padding: 3px 12px;
+  margin: 0;
+}
+.cartItemes {
+  padding: 0 4px;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+}
+.total span{
+    margin: 0 15px;
+    font-size: 26px;
+    font-weight: bold;
+}
+.btnholder{
+    text-align: right;
+    padding: 10px 15px ;
+}
+.close{
+    border:  none;
+    padding:7px 24px;
+    border-radius: 25px;
+    margin: 0 15px;
+    color: rgb(177, 13, 45);
+    background-color: transparent;
+    border:  1px solid rgb(177, 13, 45);
+}
+.button{
+    border:  none;
+    padding:7px 24px;
+    border-radius: 15px;
+   color: #fff;
+   background-color: rgb(177, 13, 45);
 }
