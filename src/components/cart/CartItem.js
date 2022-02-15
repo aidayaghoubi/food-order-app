@@ -4,18 +4,31 @@ import classes from './../cart/cartitem.module.css'
 
 
 const CartItem = props => {
-    return(
+
+    const clickaddhandler = () => {
+
+        props.onAdd();
+    }
+    const clickMinushandler = () => {
+       
+        props.onRemove();
+    }
+    console.log(props)
+    return (
         <Fragment>
             <div className={classes.itemInHeaderWrapper}>
-             <div className={classes.inro}>
-                 <h1></h1>
-                 <h4></h4>
-              <button>x1</button>
-             </div>
-             <div>
-                 <button>+</button>
-                 <button>+</button>
-             </div>
+                <h1>{props.nama}</h1>
+                <div className={classes.inro}>
+
+                    <h4>${props.price * props.amount}</h4>
+                    <span>x {props.amount}</span>
+
+                    <div className={classes.btnHolder}>
+                        <button onClick={clickaddhandler}>+</button>
+                        <button onClick={clickMinushandler}>-</button>
+                    </div>
+
+                </div>
             </div>
         </Fragment>
     )

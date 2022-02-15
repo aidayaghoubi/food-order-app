@@ -1,0 +1,36 @@
+.inro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.inro span{
+    border: 1px rgb(200, 199, 199) solid;
+    padding: 4px 9px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    position: absolute;
+    left:80px;
+}
+.inro h4{
+    color: rgb(134, 13, 13);
+}
+.itemInHeaderWrapper{
+    border-bottom: 1px solid rgb(124, 9, 32);
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+.btnHolder button{
+    border: 1px solid rgb(124, 9, 32);
+    color: rgb(124, 9, 32);
+   
+    padding: 5px 15px;
+    margin:  0 5px;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 22px;
+}
+.btnHolder button:focus{
+   background-color: crimson;
+}
