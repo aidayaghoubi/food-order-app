@@ -6,11 +6,8 @@ import { FunctionalContext } from '../../../store/cart-content';
 const MealItemForm = props => {
 
     const [enterdNumIsValid, setenterdNumIsValid] = useState(true)
-    // const [addItem , items] = useContext(CartContext)
-
-
+   
     const amountInputRef = useRef();
-     const [addclicked, setaddclickes] = useState(false)
 
     const submitHandler = event => {
         event.preventDefault();
@@ -22,27 +19,17 @@ const MealItemForm = props => {
 
         if (eneterdAmount.trim().length === 0 || enterdAmountnNumber < 1 || enterdAmountnNumber > 5) {
           
-            setenterdNumIsValid(false)
+            setenterdNumIsValid(false);
+            amountInputRef.current.value='';
             return;
         } else {
             setenterdNumIsValid(true);
             props.onAddItem(enterdAmountnNumber);
             amountInputRef.current.value='';
-            // console.log(event.target.classList.include('fr'));
-           
-            // if(event.target.classList.include('clicked')){
-            //     event.target.classList.remove('clicked');
-            // }else{
-            //     event.target.classList.add('clicked');
-            // }
+          
         }
 
     }
-
-    // useEffect(() => {
-
-    // }, [addclicked])
-
     return <form className={classes.form} style={{ textAlign: 'right' }} onSubmit={submitHandler}>
         <Input
             ref={amountInputRef}
@@ -56,7 +43,7 @@ const MealItemForm = props => {
                 defaultvalue: '1'
             }} />
         <button className={classes.add} onClick={submitHandler}>+ Add</button>
-        {!enterdNumIsValid && <p className={classes.warning}>plese enter a valid amount</p>}
+        {!enterdNumIsValid && <p className={classes.warning}>Plese Enter A Calid number between 1 to 5</p>}
     </form>
 }
 export default MealItemForm;

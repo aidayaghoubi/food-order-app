@@ -11,6 +11,7 @@ import { useState } from 'react';
 function App() {
 
   const [cartIsShown, setCartIsShown] = useState(false);
+  const [modalIsInCloseProsses, setmodalIsInCloseProsses] = useState(false);
  
   const ShowCartHandler = () => {
     setCartIsShown(true)
@@ -19,15 +20,15 @@ function App() {
   const HideCartHandler = () => {
 
     setTimeout(() => {
-      setCartIsShown(false)
-
+      setCartIsShown(false);
+      setmodalIsInCloseProsses(true);
     }, 500);
   };
 
   return (
     <FunctionalProvider>
 
-      {cartIsShown && <Cart onClose={HideCartHandler} />}
+      {cartIsShown && <Cart onClose={HideCartHandler} getFadeAnimate={modalIsInCloseProsses} />}
       <Header onshowCart={ShowCartHandler} />
       <main>
         <Meals />
