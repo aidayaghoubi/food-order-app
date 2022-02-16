@@ -6,7 +6,7 @@ import { useContext, useState } from 'react';
 const MealItem = (props) => {
   const cartCTX = useContext(FunctionalContext);
 
-  const pricee = `$${props.price}`;
+  // const pricee = `$${props.price}`;
 
   const addeneterdnumber = (item) => {
    cartCTX.addItem({
@@ -14,10 +14,11 @@ const MealItem = (props) => {
       name:props.name,
       amount:item,
       description:props.description,
-      price:props.price
+      price:props.price,
+      totalprice:item * props.price
    }, item)
    
-    console.log(item)
+    
   }
 
   return <li className={classes.lii}>
@@ -25,7 +26,7 @@ const MealItem = (props) => {
       <div >
         <h3 className={classes.title}>{props.name}</h3></div>
       <div className={classes.description}>{props.description}</div>
-      <div className={classes.price}>{props.price}</div>
+      <div className={classes.price}>${props.price}</div>
     </div>
     <div>
 

@@ -10,12 +10,14 @@ const ModalOverlay = (props) => {
         <div className={classes.content}>{props.children}</div>
     </div>
 }
-
+const addAnimation = () =>{
+    const newclassnaame=`${classes.content} ${classes.faderout}`
+}
 const portalElement=document.getElementById('overlays');
 const Modal = (props) => {
 
     return <Fragment>
-        {reactDom.createPortal(<Backdrop onClick={props.onClick}/>,portalElement)}
+        {reactDom.createPortal(<Backdrop onClick={props.onClick} addclass={addAnimation}/>,portalElement)}
         {reactDom.createPortal(<ModalOverlay onClick={props.onClick}>{props.children}</ModalOverlay>,portalElement)}
     </Fragment>
 

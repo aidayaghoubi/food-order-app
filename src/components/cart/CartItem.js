@@ -10,17 +10,17 @@ const CartItem = props => {
         props.onAdd();
     }
     const clickMinushandler = () => {
-       
+
         props.onRemove();
     }
-    console.log(props)
+ 
     return (
         <Fragment>
             <div className={classes.itemInHeaderWrapper}>
                 <h1>{props.nama}</h1>
                 <div className={classes.inro}>
 
-                    <h4>${props.price * props.amount}</h4>
+                    <h4> ${props.totalprice}</h4>
                     <span>x {props.amount}</span>
 
                     <div className={classes.btnHolder}>

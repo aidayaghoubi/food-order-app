@@ -6,6 +6,7 @@
 }
 .cartItemes {
   padding: 0 4px;
+
 }
 .total {
   display: flex;
@@ -37,3 +38,13 @@
    background-color: rgb(177, 13, 45);
 }
 
+.lable{
+  font-size: 20px !important;
+  color: rgb(165, 9, 40);
+  margin: 0px -4px 0 20px !important;
+}
+.holder{
+ display: flex;
+ align-items: center;
+
+}
