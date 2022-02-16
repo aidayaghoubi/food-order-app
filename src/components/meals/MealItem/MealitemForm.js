@@ -1,7 +1,7 @@
 import classes from '../../ui/ul.module.css';
 import Input from '../../ui/Input';
 import { useContext, useRef, useState } from 'react';
-import CartContext from '../../../store/cart-content';
+import {FunctionalContext} from '../../../store/cart-content';
 
 const MealItemForm = props => {
 

@@ -2,18 +2,18 @@ import { useContext, useEffect, useState } from 'react';
 
 import CartIcon from '../cart/CartIcon';
 import classes from './HeaderCartButton.module.css';
-import CartContext from '../../store/cart-content';
+import {FunctionalContext} from '../../store/cart-content';
 
 const HeaderButton = ({ onClick }) => {
-    const cartCtx = useContext(CartContext);
+    
+    const cartCtx = useContext(FunctionalContext);
 
     const numberOfItems = cartCtx.items.reduce((curnumber, item) => {
-
         return curnumber + item.amount;
-
     }, 0);
 
     const [btnIsLighted, setbtnIsLighted] = useState(false);
+
     const btnclass = `${classes.button}  ${btnIsLighted ? classes.anima : ''}`;
 
     useEffect(() => {
@@ -22,9 +22,9 @@ const HeaderButton = ({ onClick }) => {
             setbtnIsLighted(false)
         }, 500)
 
-        return ()=>{
+        return () => {
             clearTimeout(timer);
-        } 
+        }
     }, [cartCtx.items])
 
     return (

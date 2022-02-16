@@ -1,22 +1,24 @@
 import classes from '../cart/card.module.css';
 import Modal from '../ui/Model';
-import CartContext from '../../store/cart-content';
+import {FunctionalContext} from '../../store/cart-content';
 import { useContext } from 'react/cjs/react.development';
 import { useState } from 'react';
 import CartItem from './CartItem';
 
 
 const Cart = props => {
-    const cartCTX = useContext(CartContext);
+    const cartCTX = useContext(FunctionalContext);
     const [item, setitem] = useState(false);
+    
     const hasItem = cartCTX.items.length > 0;
     const totalAmount = `$${cartCTX.totalAmount.toFixed(2)}`;
-    console.log(cartCTX)
+    
+
     const additemHandler = (item) => {
-       cartCTX.addItem(item)
+       cartCTX.addItem(item, 1)
     }
-    const removeitemHandler = (id) => {
-        // cartCTX.removeItem(...item , amount=1)
+    const removeitemHandler = (item) => {
+        cartCTX.removeItem(item)
     }
     const cartitem = <ul className={classes.cartItemes}>{cartCTX.items
         .map((item) => <CartItem
@@ -25,8 +27,8 @@ const Cart = props => {
             nama={item.name}
             amount={item.amount}
             price={item.price}
-            onAdd={additemHandler.bind(null,item)}
-            onRemove={removeitemHandler.bind(null , item.id)}
+            onAdd={() => additemHandler(item)}
+            onRemove={() => removeitemHandler(item)}
         >{item.name}</CartItem>)}</ul>;
     console.log(item)
 

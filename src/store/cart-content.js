@@ -1,11 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 
- const CartContext = React.createContext({
-    items: [],
-    totalAmount:0,
-    addItem: (item) => {},
-    removeItem: (id) => {}
-});
+export const FunctionalContext = React.createContext();
+
+export const FunctionalProvider = ({ children }) => {
+    
+  const [state, setState] = useState({
+        items: [],
+        totalAmount: 0
+    });
+
+    
+    const addItem = (item, count) => {
+        
+        if(state.items.find(cartItem => cartItem.id === item.id)) {
+            
+            let currentItem = state.items.find(cartItem => cartItem.id === item.id);
+            let currentItems = JSON.parse(JSON.stringify(state.items));
+            currentItem.amount = currentItem.amount + count;
+            currentItems = currentItems.filter(cartItem => cartItem.id !== item.id);
+            currentItems = [...currentItems, currentItem];
+            
+            setState(state => ({...state, items: currentItems, totalAmount: state.totalAmount + currentItem.amount}));
+        } else {
+            
+
+            let currentItems = JSON.parse(JSON.stringify(state.items));
+            currentItems = [...currentItems, item];
+            
+            
+            setState(state => ({...state, items: currentItems}));
+        }
+    };
+
+    const removeItem = item => {
+        
+        let currentItems = JSON.parse(JSON.stringify(state.items));
+        let currentItem = state.items.find(cartItem => cartItem.id === item.id);
+        currentItems = currentItems.filter(cartItem => cartItem.id !== item.id);
+        if(currentItem.amount > 1) {
+            currentItem.amount = currentItem.amount - 1;
+            currentItems = currentItems.filter(cartItem => cartItem.id !== item.id);
+            currentItems = [...currentItems, currentItem];
+        } else {
+            currentItems = currentItems.filter(cartItem => cartItem.id !== item.id);
+        }
+
+        setState(state => ({...state, items: currentItems, totalAmount: state.totalAmount - 1}));
+    };
+
+  return (
+    <FunctionalContext.Provider value={{ items: state.items, totalAmount: state.totalAmount, addItem, removeItem }}>
+      {children}
+    </FunctionalContext.Provider>
+  );
+};
 
 
-export default CartContext;
+

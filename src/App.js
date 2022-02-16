@@ -5,7 +5,7 @@ import Header from './components/layout/Header';
 import Meals from './components/meals/Meals';
 import Card from './components/ui/Card';
 import Cart from './components/cart/card';
-import CartProvider from './store/CartProvider';
+import {FunctionalProvider} from './store/cart-content';
 import { useState } from 'react';
 
 function App() {
@@ -21,14 +21,14 @@ function App() {
   };
 
   return (
-    <CartProvider>
+    <FunctionalProvider>
       {cartIsShown && <Cart onClose={HideCartHandler} />}
     
       <Header onshowCart={ShowCartHandler} />
       <main>
         <Meals />
       </main>
-    </CartProvider>
+    </FunctionalProvider>
   );
 }
 

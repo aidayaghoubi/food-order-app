@@ -1,10 +1,10 @@
 import classes from './Mealitem.module.css';
 import MealItemForm from './MealitemForm';
-import CartContext from '../../../store/cart-content';
+import {FunctionalContext} from '../../../store/cart-content';
 import { useContext, useState } from 'react';
 
 const MealItem = (props) => {
-  const cartCTX = useContext(CartContext);
+  const cartCTX = useContext(FunctionalContext);
 
   const pricee = `$${props.price}`;
 
@@ -15,7 +15,8 @@ const MealItem = (props) => {
       amount:item,
       description:props.description,
       price:props.price
-   })
+   }, item)
+   
     console.log(item)
   }
 
